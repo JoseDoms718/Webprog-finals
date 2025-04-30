@@ -9,6 +9,7 @@ import Loginpage from './Loginpage';
 import Admin from './Admin';
 import Adminsales from './Adminsales';
 import Adminretailer from './Adminretailer';
+import Adminuserlist from './Adminuserlist';
 import Adminstock from './Adminstock';
 
 createRoot(document.getElementById('root')).render(
@@ -22,6 +23,7 @@ createRoot(document.getElementById('root')).render(
         <Route path="/adminsales" element={<Adminsales />} />
         <Route path="/adminretailer" element={<Adminretailer />} />
         <Route path="/adminstock" element={<Adminstock />} />
+        <Route path="/adminuserlist" element={<Adminuserlist />} />
         <Route path="/products1" element={<Productsbuy />} />
       </Routes>
     </BrowserRouter>

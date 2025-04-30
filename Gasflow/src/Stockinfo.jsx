@@ -62,15 +62,18 @@ function Stockinfo() {
             </tr>
           </thead>
           <tbody>
-            {data.transactions.map((txn) => (
-              <tr key={txn.id}>
-                <td>{txn.id}</td>
-                <td>{txn.type}</td>
-                <td>{txn.quantity}</td>
-                <td>{txn.date}</td>
-              </tr>
-            ))}
-          </tbody>
+  {data.transactions
+    .filter((txn) => txn.type === 'Sold') // Only show 'Sold' entries
+    .map((txn) => (
+      <tr key={txn.id}>
+        <td>{txn.id}</td>
+        <td>{txn.type}</td>
+        <td>{txn.quantity}</td>
+        <td>{txn.date}</td>
+      </tr>
+    ))}
+</tbody>
+
         </table>
       </div>
     </div>

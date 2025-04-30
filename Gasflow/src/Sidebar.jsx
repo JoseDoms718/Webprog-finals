@@ -17,9 +17,9 @@ function Sidebar() {
                     <li><a href="/products"><FontAwesomeIcon icon={faBoxOpen} /> Products</a></li>
                     <li><Link to="/adminstock"><FontAwesomeIcon icon={faWarehouse} /> Inventory</Link></li>
                     <li><Link to="/adminsales"><FontAwesomeIcon icon={faChartLine} /> Sales Report</Link></li>
-                    <li><a href="/user-management"><FontAwesomeIcon icon={faUsersCog} /> User Management</a></li>
+                    <li><Link to="/adminuserlist"><FontAwesomeIcon icon={faUsersCog} /> User Management</Link></li>
                     <li><a href="/settings"><FontAwesomeIcon icon={faCog} /> Settings</a></li>
-                    <li><a href="/logout"><FontAwesomeIcon icon={faPowerOff} /> Logout</a></li>
+                    <li><Link to="/login"><FontAwesomeIcon icon={faPowerOff} /> Logout</Link></li>
                 </ul>
             </div>
         </div>
