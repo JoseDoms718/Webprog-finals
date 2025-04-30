@@ -6,41 +6,19 @@
     padding: 2rem;
 }
 
-/* Filter Section */
-.userlist-filter label {
-    font-weight: 600;
-    color: #1f2937;
-    font-size: 1rem;
-}
-
-.filter-select {
-    padding: 0.5rem 0.75rem;
-    border: 1px solid #d1d5db;
-    border-radius: 0.375rem;
-    background-color: #f9fafb;
-    font-size: 0.95rem;
-    transition: border-color 0.2s, background-color 0.2s;
-}
-
-.filter-select:focus {
-    outline: none;
-    border-color: #3b82f6;
-    background-color: #ffffff;
-}
-
 /* Table */
-.userlist-table {
+table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 1rem;
     font-size: 0.95rem;
 }
 
-.userlist-table-head {
+thead {
     background-color: #f3f4f6;
 }
 
-.table-header {
+th {
     text-align: left;
     padding: 0.75rem 1rem;
     color: #111827;
@@ -48,46 +26,50 @@
     border-bottom: 2px solid #e5e7eb;
 }
 
-.userlist-row {
+tr {
     transition: background-color 0.2s;
 }
 
-.userlist-row:hover {
+tr:hover {
     background-color: #f9fafb;
 }
 
-.table-cell {
+td {
     padding: 0.75rem 1rem;
     border-bottom: 1px solid #e5e7eb;
     color: #374151;
 }
 
 /* Action Buttons */
-.edit-button,
-.delete-button {
-    font-size: 0.85rem;
-    padding: 0.4rem 0.8rem;
-    border-radius: 0.375rem;
-    color: #ffffff;
+button {
+    padding: 6px 12px;
+    margin: 0 5px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 14px;
     font-weight: 500;
     transition: background-color 0.2s, transform 0.2s;
 }
 
-.edit-button {
+/* Edit */
+button.edit {
     background-color: #3b82f6;
-    margin-right: 0.5rem;
+    color: white;
 }
 
-.edit-button:hover {
+button.edit:hover {
     background-color: #2563eb;
     transform: scale(1.05);
 }
 
-.delete-button {
+/* Delete */
+button.delete {
     background-color: #ef4444;
+    color: white;
 }
 
-.delete-button:hover {
+button.delete:hover {
     background-color: #dc2626;
     transform: scale(1.05);
 }

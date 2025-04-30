@@ -10,6 +10,7 @@ function Admin(){
         <>
         <div className="admin-container">
             <Sidebar/>
+            <Userlist/>
         </div>
         </>
     );

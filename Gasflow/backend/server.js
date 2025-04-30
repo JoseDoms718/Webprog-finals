@@ -79,6 +79,54 @@ app.post('/login', async (req, res) => {
   }
 });
 
+// Get all users (for admin or other roles)
+app.get('/users', async (req, res) => {
+  try {
+    const users = await User.find();
+    return res.status(200).json(users);
+  } catch (err) {
+    console.error('Error fetching users:', err);
+    return res.status(500).json({ message: 'Server error.' });
+  }
+});
+//delete users
+app.delete('/users/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    await User.findByIdAndDelete(id);
+    res.status(200).json({ message: 'User deleted successfully.' });
+  } catch (err) {
+    console.error('Error deleting user:', err);
+    res.status(500).json({ message: 'Server error.' });
+  }
+});
+//edit users
+app.put('/users/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { name, email, phoneNumber, address, role } = req.body;
+    const updatedUser = await User.findByIdAndUpdate(id, { name, email, phoneNumber, address, role }, { new: true });
+    res.status(200).json(updatedUser);
+  } catch (err) {
+    console.error('Error updating user:', err);
+    res.status(500).json({ message: 'Server error.' });
+  }
+});
+//edit users
+app.put('/users/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { name, email, phoneNumber, address, role } = req.body;
+    const updatedUser = await User.findByIdAndUpdate(id, { name, email, phoneNumber, address, role }, { new: true });
+    res.status(200).json(updatedUser);
+  } catch (err) {
+    console.error('Error updating user:', err);
+    res.status(500).json({ message: 'Server error.' });
+  }
+});
+
+
+
 // Start the server
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
