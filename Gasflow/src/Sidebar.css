@@ -1,0 +1,88 @@
+/* Sidebar.css */
+.sidebar-container {
+    height: 100vh;
+    width: 250px;
+    background-color: #2c3e50;
+    color: white;
+    padding: 20px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+  }
+  
+  .sidebar-header {
+    margin-bottom: 40px;
+    padding: 2rem;
+    border-bottom: 2px solid white;
+  }
+  
+  .sidebar-header h1 {
+    font-size: 28px;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .gas {
+    color: #e74c3c;
+  }
+  
+  .flow {
+    color: #3498db;
+  }
+  
+  .sidebar-navlinks ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .sidebar-navlinks li {
+    margin: 20px 0;
+  }
+  
+  .sidebar-navlinks a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, padding-left 0.3s ease;
+  }
+  
+  .sidebar-navlinks a:hover {
+    background-color: #34495e;
+    padding-left: 25px;
+  }
+  
+  .sidebar-navlinks a svg {
+    margin-right: 15px;
+    font-size: 22px;
+  }
+  
+  .sidebar-navlinks a.active {
+    background-color: #1abc9c;
+    padding-left: 25px;
+  }
+  
+  .sidebar-navlinks li:last-child {
+    margin-top: auto;
+  }
+  
+  @media (max-width: 768px) {
+    .sidebar-container {
+      width: 200px;
+    }
+  
+    .sidebar-container h1 {
+      font-size: 24px;
+    }
+  
+    .sidebar-navlinks a {
+      font-size: 16px;
+    }
+  }
+  

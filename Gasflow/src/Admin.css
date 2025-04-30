@@ -1,0 +1,13 @@
+.admin-container {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .userlist-container {
+    flex: 1;
+    background-color: #ffffff;
+    padding: 20px;
+    margin-left: 250px;
+    overflow: auto;
+  }
+  
