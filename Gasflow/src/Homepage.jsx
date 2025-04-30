@@ -1,47 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom'; // ADD THIS
 import { FaUser, FaSearch, FaShoppingCart } from 'react-icons/fa';
+import Navbar from './Navbar';
 import './Landingpage.css';
 
 function Homepage() {
   return (
     <>
-      <nav>
-        <div className="logo">
-          <h1>
-            <span className="gas">GAS</span>
-            <span className="flow">flow</span>
-          </h1>
-        </div>
-
-        <div className="center-items">
-          <div className="navlinks">
-            <Link to="/">Home</Link>
-            <Link to="/products">Products</Link>
-            <Link to="/services">Services</Link>
-            <Link to="/orders">Orders</Link>
-            <Link to="/contact">Contact</Link>
-          </div>
-          <div className="search-bar-with-icon">
-            <input
-              type="text"
-              className="search-bar"
-              placeholder="Search..."
-            />
-            <FaSearch className="search-icon" />
-          </div>
-        </div>
-
-        <div className="right-items">
-          <Link to="/cart" className="icon-container">
-            <FaShoppingCart className="user-icon" />
-          </Link>
-          <Link to="/profile" className="icon-container">
-            <FaUser className="user-icon" />
-          </Link>
-        </div>
-      </nav>
-
+      <Navbar/>
       <section className="herosection">
         <div className="search-bar-container"></div>
         <div className="herosection-container">
@@ -81,27 +47,40 @@ function Homepage() {
         </div>
         <div className="products-list">
           <div className="product-card">
-            <img src="src/assets/products1.png" alt="Product 1" />
-            <h3>Product Name 1</h3>
-            <p>$29.99</p>
+            <Link to="/products1" className="product-link">
+              <img src="src/assets/products1.png" alt="Product 1" />
+              <h3>Product Name 1</h3>
+              <p>₱29.99</p>
+            </Link>
+            <Link to="/products1"className="buy-now-btn">Buy Now</Link>
           </div>
           <div className="product-card">
-            <img src="src/assets/products2.png" alt="Product 2" />
-            <h3>Product Name 2</h3>
-            <p>$39.99</p>
+            <a href="/product2" className="product-link">
+              <img src="src/assets/products2.png" alt="Product 2" />
+              <h3>Product Name 2</h3>
+              <p>₱39.99</p>
+            </a>
+            <button className="buy-now-btn">Buy Now</button>
           </div>
           <div className="product-card">
-            <img src="src/assets/products3.png" alt="Product 3" />
-            <h3>Product Name 3</h3>
-            <p>$19.99</p>
+            <a href="/product3" className="product-link">
+              <img src="src/assets/products3.png" alt="Product 3" />
+              <h3>Product Name 3</h3>
+              <p>₱19.99</p>
+            </a>
+            <button className="buy-now-btn">Buy Now</button>
           </div>
           <div className="product-card">
-            <img src="src/assets/products4.png" alt="Product 4" />
-            <h3>Product Name 4</h3>
-            <p>$49.99</p>
+            <a href="/product4" className="product-link">
+              <img src="src/assets/products4.png" alt="Product 4" />
+              <h3>Product Name 4</h3>
+              <p>₱49.99</p>
+            </a>
+            <button className="buy-now-btn">Buy Now</button>
           </div>
         </div>
       </section>
+
 
       <section className="contactsection">
         <div className="seperatorh2">

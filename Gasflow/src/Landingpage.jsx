@@ -54,27 +54,40 @@ function Landingpage() {
         </div>
         <div className="products-list">
           <div className="product-card">
-            <img src="src/assets/products1.png" alt="Product 1" />
-            <h3>Product Name 1</h3>
-            <p>$29.99</p>
+            <Link to="/login" className="product-link">
+              <img src="src/assets/products1.png" alt="Product 1" />
+              <h3>Product Name 1</h3>
+              <p>₱29.99</p>
+            </Link>
+            <button className="buy-now-btn">Buy Now</button>
           </div>
           <div className="product-card">
-            <img src="src/assets/products2.png" alt="Product 2" />
-            <h3>Product Name 2</h3>
-            <p>$39.99</p>
+            <Link to="/login" className="product-link">
+              <img src="src/assets/products2.png" alt="Product 2" />
+              <h3>Product Name 2</h3>
+              <p>₱39.99</p>
+            </Link>
+            <button className="buy-now-btn">Buy Now</button>
           </div>
           <div className="product-card">
-            <img src="src/assets/products3.png" alt="Product 3" />
-            <h3>Product Name 3</h3>
-            <p>$19.99</p>
+            <Link to="/login" className="product-link">
+              <img src="src/assets/products3.png" alt="Product 3" />
+              <h3>Product Name 3</h3>
+              <p>₱19.99</p>
+            </Link>
+            <button className="buy-now-btn">Buy Now</button>
           </div>
           <div className="product-card">
-            <img src="src/assets/products4.png" alt="Product 4" />
-            <h3>Product Name 4</h3>
-            <p>$49.99</p>
+            <Link to="/login" className="product-link">
+              <img src="src/assets/products4.png" alt="Product 4" />
+              <h3>Product Name 4</h3>
+              <p>₱49.99</p>
+            </Link>
+            <button className="buy-now-btn">Buy Now</button>
           </div>
         </div>
       </section>
+
 
       <section className="contactsection">
         <div className="seperatorh2">

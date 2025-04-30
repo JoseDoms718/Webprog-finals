@@ -1,0 +1,15 @@
+.admin-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar-container {
+  width: 250px;
+  flex-shrink: 0;
+}
+
+.stock-container {
+  flex-grow: 1;
+  padding: 2rem;
+  box-sizing: border-box;
+}

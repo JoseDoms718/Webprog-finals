@@ -8,17 +8,33 @@ function Userlist() {
     const [users, setUsers] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:5000/users')
-            .then(res => {
-                console.log("Fetched users:", res.data); // Log the full response for debugging
-                setUsers(res.data);
+        // Fetching users from the backend
+        const token = localStorage.getItem('authToken');  // Assuming the token is stored in localStorage
+
+        if (token) {
+            axios.get('http://localhost:5000/users', {
+                headers: {
+                    'x-auth-token': token,  // Send the token in the request header
+                }
             })
-            .catch(err => console.error("Failed to fetch users:", err));
-    }, []);
+                .then(res => {
+                    console.log("Fetched users:", res.data); // Log the full response for debugging
+                    setUsers(res.data);
+                })
+                .catch(err => console.error("Failed to fetch users:", err));
+        } else {
+            console.log("No token found, cannot fetch users.");
+        }
+    }, []); // This ensures the request is made once when the component mounts
 
     const handleDelete = async (userId) => {
         try {
-            await axios.delete(`http://localhost:5000/users/${userId}`);
+            const token = localStorage.getItem('authToken');
+            await axios.delete(`http://localhost:5000/users/${userId}`, {
+                headers: {
+                    'x-auth-token': token,  // Send the token in the request header
+                }
+            });
             setUsers(users.filter(user => user._id !== userId)); // Update the state to remove the deleted user
             alert("User deleted successfully!");
         } catch (err) {

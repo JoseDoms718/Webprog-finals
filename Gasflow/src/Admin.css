@@ -3,11 +3,13 @@
     height: 100vh;
   }
   
-  .userlist-container {
+  .userlist-container,
+  .retailerlist-container,
+  .admin-sales-container {
     flex: 1;
     background-color: #ffffff;
     padding: 20px;
     margin-left: 250px;
     overflow: auto;
-  }
+  } 
   
