@@ -1,7 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const Order = require('../models/Pending.js');  // Adjust the path if necessary
+const Order = require('../models/Pending.js');
+const { protect, isAdmin } = require('../middleware/auth.js');  // Import the auth middlewares
 
+// POST route to create a new order
 router.post('/orders', async (req, res) => {
   const { name, email, contact, address, item, quantity, price } = req.body;
 
@@ -11,7 +13,6 @@ router.post('/orders', async (req, res) => {
   }
 
   try {
-    // Create a new order
     const newOrder = new Order({
       name,
       email,

@@ -12,6 +12,10 @@ import Adminretailer from './Adminretailer';
 import Adminuserlist from './Adminuserlist';
 import Adminstock from './Adminstock';
 import Customerpage from './Customerpage';
+// order-list
+import Orderlistpreparing from './Orderlistpreparing';
+import Orderlistdelivery from './Orderlistdelivery';
+import Orderlistfinished from './Orderlistfinished';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -26,6 +30,9 @@ createRoot(document.getElementById('root')).render(
         <Route path="/adminstock" element={<Adminstock />} />
         <Route path="/adminuserlist" element={<Adminuserlist />} />
         <Route path="/products1" element={<Productsbuy />} />
+        <Route path="/order-list-preparing" element={<Orderlistpreparing />} />
+        <Route path="/order-list-delivery" element={<Orderlistdelivery />} />
+        <Route path="/order-list-finished" element={<Orderlistfinished />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>

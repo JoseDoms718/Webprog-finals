@@ -136,6 +136,31 @@ app.post('/orders', async (req, res) => {
   }
 });
 
+
+app.get('/orders', async (req, res) => {
+  try {
+    const orders = await Order.find(); // Fetch all orders from the database
+    res.status(200).json(orders); // Send orders as response
+  } catch (err) {
+    console.error('Error fetching orders:', err);
+    res.status(500).json({ message: 'Server error.' });
+  }
+});
+
+app.put('/orders/:id', protect, isAdmin, async (req, res) => {
+  const { id } = req.params;
+  const { status } = req.body; // Status from the frontend
+
+  try {
+    const updatedOrder = await Order.findByIdAndUpdate(id, { status }, { new: true });
+    res.status(200).json(updatedOrder);
+  } catch (err) {
+    console.error('Error updating order status:', err);
+    res.status(500).json({ message: 'Server error.' });
+  }
+});
+
+
 // Start the server
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

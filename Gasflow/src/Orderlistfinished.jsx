@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { FaCheck, FaTimes } from 'react-icons/fa';
+import Sidebar from './Sidebar';
 import Adminorderstatus from './Adminorderstatus';
 import './Orderlistpending.css';
 
-function Orderlistpending() {
+function Orderlistfinished() {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -58,7 +59,7 @@ function Orderlistpending() {
 
   // Function to confirm order and update its status to 'preparing'
   const handleConfirmOrder = async (order) => {
-    const updatedOrder = { ...order, status: 'preparing' }; // Update the status to preparing
+    const updatedOrder = { ...order, status: 'finished' }; // Update the status to preparing
 
     try {
       const token = localStorage.getItem('token');
@@ -94,6 +95,12 @@ function Orderlistpending() {
   };
 
   return (
+    <>
+    <div className="admin-container">
+    <Sidebar/>
+    </div>
+    <div className="adminorder-container">
+    <Adminorderstatus/>
     <div className="orderlist-container">
       <table className="order-table">
         <thead>
@@ -108,36 +115,38 @@ function Orderlistpending() {
           </tr>
         </thead>
         <tbody>
-          {orders.filter(order => order.status === 'pending').length === 0 ? (
+        {orders.filter(order => order.status === 'delivered').length === 0 ? (
             <tr>
-              <td colSpan="7">No pending orders found.</td>
+            <td colSpan="7">No preparing orders found.</td>
             </tr>
-          ) : (
+        ) : (
             orders
-              .filter(order => order.status === 'pending')
-              .map((order) => (
+            .filter(order => order.status === 'delivered')
+            .map((order) => (
                 <tr key={order._id}>
-                  <td>{order.item}</td>
-                  <td>{order.quantity}</td>
-                  <td>₱{order.price.toLocaleString()}</td>
-                  <td>{order.email}</td>
-                  <td>{order.address}</td>
-                  <td>{order.contact}</td>
-                  <td className="action-buttons">
+                <td>{order.item}</td>
+                <td>{order.quantity}</td>
+                <td>₱{order.price.toLocaleString()}</td>
+                <td>{order.email}</td>
+                <td>{order.address}</td>
+                <td>{order.contact}</td>
+                <td className="action-buttons">
                     <button className="btn confirm-btn" onClick={() => handleConfirmOrder(order)}>
-                      <FaCheck /> Confirm
+                    <FaCheck /> Confirm
                     </button>
                     <button className="btn decline-btn" onClick={() => handleDeclineOrder(order)}>
-                      <FaTimes /> Decline
+                    <FaTimes /> Decline
                     </button>
-                  </td>
+                </td>
                 </tr>
-              ))
-          )}
+            ))
+        )}
         </tbody>
       </table>
     </div>
+    </div>
+    </>
   );
 }
 
-export default Orderlistpending;
+export default Orderlistfinished;
