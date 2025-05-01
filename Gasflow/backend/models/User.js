@@ -25,8 +25,8 @@ const UserSchema = new mongoose.Schema({
   },
   role: {
     type: String,
-    enum: ['Super Admin', 'Admin', 'Retailer', 'Customer'], // List of valid roles
-    default: 'Customer' // Default role if none is provided
+    enum: ['Super Admin', 'Admin', 'Retailer', 'Customer'],
+    default: 'Customer'
   }
 });
 

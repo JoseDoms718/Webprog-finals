@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import './Userlist.css';
-import { FaEdit, FaTrashAlt } from 'react-icons/fa'; // Import icons
+import { FaEdit, FaTrashAlt } from 'react-icons/fa';
 
 const Userlist = () => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  const token = localStorage.getItem('token'); // get token from localStorage
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -13,6 +15,7 @@ const Userlist = () => {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
+            'x-auth-token': token,
           },
         });
 
@@ -29,21 +32,46 @@ const Userlist = () => {
       }
     };
 
-    fetchUsers();
-  }, []);
+    if (token) {
+      fetchUsers();
+    } else {
+      console.error('No token found');
+      setLoading(false);
+    }
+  }, [token]);
 
   const handleEdit = (userId) => {
     console.log(`Edit user with ID: ${userId}`);
+    // Add navigation or modal for editing here
   };
 
-  const handleDelete = (userId) => {
-    console.log(`Delete user with ID: ${userId}`);
+  const handleDelete = async (userId) => {
+    if (!window.confirm('Are you sure you want to delete this user?')) return;
+
+    try {
+      const response = await fetch(`http://localhost:5000/users/${userId}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-auth-token': token,
+        },
+      });
+
+      if (response.ok) {
+        setUsers(users.filter((user) => user._id !== userId));
+        alert('User deleted successfully.');
+      } else {
+        const data = await response.json();
+        alert(`Failed to delete user: ${data.message}`);
+      }
+    } catch (err) {
+      console.error('Error deleting user:', err);
+    }
   };
 
   if (loading) return <p>Loading...</p>;
 
-  // Filter users by role (assuming 'role' is a property in the user object)
-  const customerUsers = users.filter(user => user.role === 'Customer');
+  const customerUsers = users.filter((user) => user.role === 'Customer');
 
   return (
     <div className="userlist-container">

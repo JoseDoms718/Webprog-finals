@@ -4,7 +4,9 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const connectDB = require('./config/db.js'); // Import the db.js for DB connection
 const User = require('./models/User.js');
-require('dotenv').config(); // Load environment variables
+require('dotenv').config();
+const { protect, isAdmin } = require('./middleware/auth.js'); // Make sure the path is correct
+
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -80,7 +82,7 @@ app.post('/login', async (req, res) => {
 });
 
 // Get all users (for admin or other roles)
-app.get('/users', async (req, res) => {
+app.get('/users', protect, isAdmin, async (req, res) => {
   try {
     const users = await User.find();
     return res.status(200).json(users);
@@ -89,8 +91,9 @@ app.get('/users', async (req, res) => {
     return res.status(500).json({ message: 'Server error.' });
   }
 });
-//delete users
-app.delete('/users/:id', async (req, res) => {
+
+// Delete user (Admin only)
+app.delete('/users/:id', protect, isAdmin, async (req, res) => {
   try {
     const { id } = req.params;
     await User.findByIdAndDelete(id);
@@ -100,30 +103,24 @@ app.delete('/users/:id', async (req, res) => {
     res.status(500).json({ message: 'Server error.' });
   }
 });
-//edit users
-app.put('/users/:id', async (req, res) => {
+
+// Edit user (Admin only)
+app.put('/users/:id', protect, isAdmin, async (req, res) => {
   try {
     const { id } = req.params;
     const { name, email, phoneNumber, address, role } = req.body;
-    const updatedUser = await User.findByIdAndUpdate(id, { name, email, phoneNumber, address, role }, { new: true });
+    const updatedUser = await User.findByIdAndUpdate(
+      id,
+      { name, email, phoneNumber, address, role },
+      { new: true }
+    );
     res.status(200).json(updatedUser);
   } catch (err) {
     console.error('Error updating user:', err);
     res.status(500).json({ message: 'Server error.' });
   }
 });
-//edit users
-app.put('/users/:id', async (req, res) => {
-  try {
-    const { id } = req.params;
-    const { name, email, phoneNumber, address, role } = req.body;
-    const updatedUser = await User.findByIdAndUpdate(id, { name, email, phoneNumber, address, role }, { new: true });
-    res.status(200).json(updatedUser);
-  } catch (err) {
-    console.error('Error updating user:', err);
-    res.status(500).json({ message: 'Server error.' });
-  }
-});
+
 
 
 
