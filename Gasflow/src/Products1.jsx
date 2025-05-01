@@ -11,6 +11,43 @@ function Products1() {
         if (quantity > 1) setQuantity(prev => prev - 1);
     };
 
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        const form = e.target;
+        const orderData = {
+            name: form.name.value,
+            email: form.email.value,
+            contact: form.contact.value,
+            address: form.address.value,
+            item: '1.4Kg - Auto shut off Cylinder',
+            quantity,
+            price: quantity * unitPrice
+        };
+
+        try {
+            const response = await fetch('http://localhost:5000/orders', {  // Make sure to update the URL if needed
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(orderData)
+            });
+
+            if (response.ok) {
+                alert('Order submitted successfully!');
+                form.reset();
+                setQuantity(1);  // Reset quantity after successful submission
+            } else {
+                const errorData = await response.json();
+                alert(`Failed to submit order: ${errorData.error || 'Unknown error'}`);
+            }
+        } catch (error) {
+            console.error('Error submitting order:', error);
+            alert('An error occurred. Please try again later.');
+        }
+    };
+
     return (
         <section>
             <div className="Product-container">
@@ -22,7 +59,7 @@ function Products1() {
                 </div>
 
                 <div className="Productform-container">
-                    <form>
+                    <form onSubmit={handleSubmit}>
                         <h3>Order Form</h3>
 
                         <label htmlFor="name">Name:</label>
@@ -43,8 +80,6 @@ function Products1() {
                             </div>
                             <p className="total-price">₱{totalPrice.toLocaleString()}</p>
                         </div>
-
-                        <input type="hidden" name="quantity" value={quantity} />
 
                         <label htmlFor="address">Delivery Address:</label>
                         <textarea id="address" name="address" rows="4" required></textarea>

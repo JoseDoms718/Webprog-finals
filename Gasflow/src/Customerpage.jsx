@@ -16,12 +16,12 @@ function Customerpage() {
                 <h2 className="section-title">🔥 Hot Deals!</h2>
                 <div className="products-list">
                     <div className="product-card">
-                        <Link to="/product1" className="product-link">
+                        <Link to="/products1" className="product-link">
                             <img src="src/assets/products1.png" alt="1.4Kg Solane Sakto" />
                             <h3>1.4Kg Solane Sakto</h3>
                             <p>₱999.00</p>
                         </Link>
-                        <Link to="/product1" className="buy-now-btn">Buy Now</Link>
+                        <Link to="/products1" className="buy-now-btn">Buy Now</Link>
                     </div>
 
                     <div className="product-card">

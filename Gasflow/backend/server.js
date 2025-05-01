@@ -2,21 +2,25 @@ const express = require('express');
 const cors = require('cors');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const connectDB = require('./config/db.js'); // Import the db.js for DB connection
+const { connectDB } = require('./config/db.js');
 const User = require('./models/User.js');
 require('dotenv').config();
-const { protect, isAdmin } = require('./middleware/auth.js'); // Make sure the path is correct
+const { protect, isAdmin } = require('./middleware/auth.js');
 
+// ✅ NEW: Connect to PendingOrders DB and load the Order model from it
+const connectPendingOrdersDB = require('./config/pendingorder.js');
+const pendingOrdersConnection = connectPendingOrdersDB();
+const Order = require('./models/Pending.js')(pendingOrdersConnection); /// inject connection
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 const JWT_SECRET = process.env.JWT_SECRET || 'fallbacksecret';
 
-// Connect to the database
+// Connect to User database
 connectDB();
 
 app.use(cors({
-  origin: 'http://localhost:5173', // Set to the exact frontend address
+  origin: 'http://localhost:5173',
   credentials: true
 }));
 app.use(express.json());
@@ -121,8 +125,16 @@ app.put('/users/:id', protect, isAdmin, async (req, res) => {
   }
 });
 
-
-
+// Order Submission Route
+app.post('/orders', async (req, res) => {
+  try {
+    const newOrder = await Order.create(req.body);
+    res.status(201).json({ message: 'Order saved successfully', order: newOrder });
+  } catch (err) {
+    console.error('Error saving order:', err);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
 
 // Start the server
 app.listen(PORT, () => {
