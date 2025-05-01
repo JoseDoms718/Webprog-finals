@@ -1,0 +1,53 @@
+.Productstatus {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 16px;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f2f5;
+    border-radius: 10px;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.status-label {
+    font-weight: 600;
+    font-size: 16px;
+    margin-right: 10px;
+    color: #333;
+}
+
+/* Base button style */
+.productstatus-button {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    transition: transform 0.2s ease, opacity 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.productstatus-button.pending {
+    background-color: #adb5bd; 
+}
+
+.productstatus-button.preparing {
+    background-color: #74c0fc;
+    color: #fff;
+}
+
+.productstatus-button.delivery {
+    background-color: #ffd43b; 
+}
+
+.productstatus-button.delivered {
+    background-color: #69db7c;
+    color: #fff;
+}
+
+.productstatus-button:hover {
+    opacity: 0.95;
+    transform: translateY(-2px);
+}

@@ -12,7 +12,7 @@ function Sidebar() {
             </div>
             <div className="sidebar-navlinks">
                 <ul>
-                    <li><a href="/orders"><FontAwesomeIcon icon={faTachometerAlt} /> Orders</a></li>
+                    <li><Link to="/admin"><FontAwesomeIcon icon={faTachometerAlt} /> Orders</Link></li>
                     <li><Link to="/adminretailer"><FontAwesomeIcon icon={faStoreAlt} /> Retailers</Link></li>
                     <li><a href="/products"><FontAwesomeIcon icon={faBoxOpen} /> Products</a></li>
                     <li><Link to="/adminstock"><FontAwesomeIcon icon={faWarehouse} /> Inventory</Link></li>
