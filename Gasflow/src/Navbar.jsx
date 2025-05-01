@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'; 
 import { FaUser, FaSearch, FaShoppingCart } from 'react-icons/fa';
-import './Landingpage.css';
+import './Customerpage.css';
 
 function Navbar(){
     return(

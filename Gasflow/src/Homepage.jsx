@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom'; // ADD THIS
 import { FaUser, FaSearch, FaShoppingCart } from 'react-icons/fa';
 import Navbar from './Navbar';
+import Footer from './Footer';
 import './Landingpage.css';
 
 function Homepage() {
@@ -115,16 +116,7 @@ function Homepage() {
         </div>
       </section>
 
-      <footer className="footer">
-        <div className="footer-content">
-          <p>&copy; {new Date().getFullYear()} GASflow. All rights reserved.</p>
-          <div className="footer-links">
-            <Link to="/privacy-policy">Privacy Policy</Link>
-            <Link to="/terms-of-service">Terms of Service</Link>
-            <Link to="/contact">Contact</Link>
-          </div>
-        </div>
-      </footer>
+      <Footer/>
     </>
   );
 }
