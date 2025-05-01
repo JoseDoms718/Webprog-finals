@@ -75,7 +75,7 @@ function Loginform({ onCreateAccountClick }) {
               <p>
                 Don't have an account?{" "}
                 <a href="#" onClick={(e) => { e.preventDefault(); onCreateAccountClick(); }}>
-                  Create one
+                  Sign up
                 </a>
               </p>
             </div>

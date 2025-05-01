@@ -1,10 +1,10 @@
 import React from 'react';
+import { FaEye, FaCheck, FaTimes } from 'react-icons/fa';
 import './Orderlistpending.css';
 
 function Orderlistpending() {
     return (
-        <div className="p-4">
-            <h2 className="heading">Pending Orders</h2>
+        <div className="orderlist-container">
             <table className="order-table">
                 <thead>
                     <tr>
@@ -24,11 +24,18 @@ function Orderlistpending() {
                         <td>123 Main St.</td>
                         <td>09123456789</td>
                         <td className="action-buttons">
-                            <button className="btn view-btn">View</button>
-                            <button className="btn confirm-btn">Confirm</button>
+                            <button className="btn view-btn">
+                                <FaEye /> View
+                            </button>
+                            <button className="btn confirm-btn">
+                                <FaCheck /> Confirm
+                            </button>
+                            <button className="btn decline-btn">
+                                <FaTimes /> Decline
+                            </button>
                         </td>
                     </tr>
-                    {/* Additional sample rows can be added here */}
+                    {/* Add more rows as needed */}
                 </tbody>
             </table>
         </div>

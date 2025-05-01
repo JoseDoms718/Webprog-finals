@@ -1,10 +1,6 @@
 import './Admin.css';
 import Sidebar from './Sidebar';
-import Userlist from './Userlist';
-import Retailerlist from './Retailerlist';
-import Stockinfo from "./Stockinfo";
-import Adminsales from './Adminsales';
-import Adminproductstatus from './Adminorderstatus';
+import Adminorderstatus from './Adminorderstatus';
 import Orderlistpending from './Orderlistpending';
 
 function Admin(){
@@ -12,8 +8,10 @@ function Admin(){
         <>
         <div className="admin-container">
             <Sidebar/>
-            <Adminproductstatus/>
+            <div className="adminorder-container">
+            <Adminorderstatus/>
             <Orderlistpending/>
+            </div>
         </div>
         </>
     );

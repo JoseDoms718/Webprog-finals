@@ -1,15 +1,26 @@
+/* Admin.css */
 .admin-container {
-    display: flex;
-    height: 100vh;
+  display: flex;
+}
+
+/* Add margin-left equal to sidebar width to prevent overlap */
+.adminorder-container,
+.adminretailer-container,
+.adminuserlist-container {
+  margin-left: 250px;
+  padding: 20px;
+  width: calc(100% - 250px);
+  background-color: #f9f9f9;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* Optional: Responsive tweak */
+@media (max-width: 768px) {
+  .adminorder-container,
+  .adminretailer-container,
+  .adminuserlist-container {
+      margin-left: 200px; /* Adjust if your sidebar becomes 200px on mobile */
+      width: calc(100% - 200px);
   }
-  
-  .userlist-container,
-  .retailerlist-container,
-  .admin-sales-container {
-    flex: 1;
-    background-color: #ffffff;
-    padding: 20px;
-    margin-left: 250px;
-    overflow: auto;
-  } 
-  
+}

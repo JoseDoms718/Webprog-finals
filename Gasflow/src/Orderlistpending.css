@@ -1,48 +1,43 @@
-/* Container spacing and typography */
-.p-4 {
-    padding: 1rem;
+.orderlist-container {
+    padding: 16px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Heading */
-h2 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    color: #2d3748;
-}
-
-/* Table base styles */
-table {
+.order-table {
     width: 100%;
     border-collapse: collapse;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
 }
 
-th, td {
+.order-table th, .order-table td {
     text-align: left;
     padding: 12px;
     border: 1px solid #e2e8f0;
 }
 
-/* Table header */
-thead {
+.order-table thead {
     background-color: #edf2f7;
 }
 
-thead th {
+.order-table th {
     font-weight: 600;
     color: #4a5568;
 }
 
-/* Table rows */
-tbody tr:hover {
+.order-table tbody tr:hover {
     background-color: #f7fafc;
     transition: background-color 0.2s ease;
 }
 
-/* Buttons */
-button {
+.action-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.action-buttons .btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
     padding: 6px 12px;
     border: none;
     border-radius: 6px;
@@ -51,43 +46,52 @@ button {
     transition: background-color 0.2s ease;
 }
 
-button:hover {
+.action-buttons .btn:hover {
     opacity: 0.9;
 }
 
-/* View button */
-.bg-blue-500 {
+/* Button styles */
+.view-btn {
     background-color: #4299e1;
     color: white;
 }
 
-/* Confirm button */
-.bg-green-500 {
+.confirm-btn {
     background-color: #48bb78;
     color: white;
 }
 
-/* Responsive table tweaks (optional) */
+.decline-btn {
+    background-color: #e74c3c;
+    color: white;
+}
+
+/* Icon size */
+.action-buttons .btn svg {
+    font-size: 18px;
+}
+
+/* Responsive table (optional) */
 @media (max-width: 768px) {
-    table, thead, tbody, th, td, tr {
+    .order-table, .order-table thead, .order-table tbody, .order-table th, .order-table td, .order-table tr {
         display: block;
     }
 
-    tr {
+    .order-table tr {
         margin-bottom: 1rem;
     }
 
-    th {
+    .order-table th {
         display: none;
     }
 
-    td {
+    .order-table td {
         border: none;
         position: relative;
         padding-left: 50%;
     }
 
-    td::before {
+    .order-table td::before {
         content: attr(data-label);
         position: absolute;
         left: 1rem;
