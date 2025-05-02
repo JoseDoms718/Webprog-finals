@@ -1,7 +1,6 @@
 const jwt = require('jsonwebtoken');
 const JWT_SECRET = process.env.JWT_SECRET || 'fallbacksecret';
 
-// Middleware to protect routes
 const protect = (req, res, next) => {
   const token = req.header('x-auth-token');
 
@@ -11,7 +10,7 @@ const protect = (req, res, next) => {
 
   try {
     const decoded = jwt.verify(token, JWT_SECRET);
-    req.user = decoded; // Attach decoded user info to the request
+    req.user = decoded; 
     next();
   } catch (err) {
     console.error('Invalid token:', err);
@@ -19,7 +18,6 @@ const protect = (req, res, next) => {
   }
 };
 
-// Middleware to check if user has Admin role
 const isAdmin = (req, res, next) => {
   if (!req.user || req.user.role !== 'Admin') {
     return res.status(403).json({ message: 'Access denied. Admins only.' });

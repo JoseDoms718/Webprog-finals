@@ -3,7 +3,7 @@ import './Products1.css';
 
 function Products1() {
     const [quantity, setQuantity] = useState(1);
-    const unitPrice = 2500;
+    const unitPrice = 999;
     const totalPrice = quantity * unitPrice;
 
     const handleIncrease = () => setQuantity(prev => prev + 1);
@@ -54,8 +54,8 @@ function Products1() {
                 <div className="Productinfo-container">
                     <img src="src/assets/products1.png" alt="Product" />
                     <h1>1.4Kg - Auto shut off Cylinder</h1>
-                    <h2>₱2,500</h2>
-                    <p>HEHE PUKPOK KO SAYO TO</p>
+                    <h2>₱999</h2>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae ipsa maiores at, eum a sequi nesciunt eaque dolor nihil corporis atque voluptas doloribus. Quia, architecto nulla? Ea numquam vero dignissimos?</p>
                 </div>
 
                 <div className="Productform-container">

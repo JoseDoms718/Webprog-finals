@@ -1,4 +1,4 @@
-// models/Pending.js
+
 const mongoose = require('mongoose');
 
 const orderSchema = new mongoose.Schema({
@@ -12,5 +12,4 @@ const orderSchema = new mongoose.Schema({
   status: { type: String, default: 'pending' }
 }, { timestamps: true });
 
-// 👇 Export a function that takes a connection and returns the model
 module.exports = (connection) => connection.model('Order', orderSchema);

@@ -1,3 +1,4 @@
+/* General Container */
 .Product-container {
     display: flex;
     flex-wrap: wrap;
@@ -5,6 +6,8 @@
     align-items: flex-start;
     gap: 3rem;
     padding: 5rem 2rem;
+    margin: 0 auto;
+    max-width: 1200px;
 }
 
 /* Product Info Block */
@@ -158,10 +161,80 @@
     .Product-container {
         flex-direction: column;
         align-items: center;
+        padding: 2rem 1rem; /* Adjust padding for smaller screens */
+    }
+
+    .Productinfo-container,
+    .Productform-container {
+        max-width: 90%;  /* Ensure both containers don't exceed screen width */
+    }
+
+    .Productform-container button[type="submit"] {
+        font-size: 1rem;
+    }
+
+    .quantity-controls button {
+        font-size: 18px;
+    }
+
+    .total-price {
+        font-size: 1.1rem;
+    }
+}
+
+/* Mobile Optimization (Max-width: 480px) */
+@media (max-width: 480px) {
+    .Product-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem 1rem;
     }
 
     .Productinfo-container,
     .Productform-container {
         max-width: 100%;
+    }
+
+    .Productinfo-container img {
+        width: 100%;  /* Make image full width */
+    }
+
+    .Productinfo-container h1 {
+        font-size: 1.5rem;
+    }
+
+    .Productinfo-container h2 {
+        font-size: 1.2rem;
+    }
+
+    .Productform-container h3 {
+        font-size: 1.4rem;
+    }
+
+    .Productform-container label {
+        font-size: 0.9rem;
+    }
+
+    .Productform-container input[type="text"],
+    .Productform-container input[type="email"],
+    .Productform-container input[type="tel"],
+    .Productform-container textarea {
+        font-size: 0.9rem;
+        padding: 0.75rem;
+    }
+
+    .quantity-controls button {
+        font-size: 18px;
+        width: 30px;
+        height: 30px;
+    }
+
+    .total-price {
+        font-size: 1rem;
+    }
+
+    .Productform-container button[type="submit"] {
+        font-size: 1rem;
+        padding: 0.8rem;
     }
 }

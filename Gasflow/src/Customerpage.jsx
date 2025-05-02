@@ -9,7 +9,9 @@ function Customerpage() {
         <>
             <Navbar />
             <section className="customerherosection-container">
+                <div className="herosection-container">
                 <img src="src/assets/Gasflow-herosection.jpg" alt="Herosection Banner" />
+                </div>
             </section>
 
             <section className="hot-deals-section">
@@ -56,25 +58,22 @@ function Customerpage() {
             <section className="services-section">
                 <div className="services-wrapper">
                     <div className="services-main">
-                        <img src="src/assets/products1.png" alt="1.4Kg Solane Sakto" class="main-image"/>
+                    <img src="src/assets/Services1.jpg" alt="" />                       
                     </div>
 
                     <div className="services-right">
                         <div className="services-feature">
-                            <img src="src/assets/services-banner.jpg" alt="Accessories Collection" class="feature-image"/>
+                        <img src="src/assets/Services2.jpg" alt="" />
                         </div>
 
                         <div className="services-feature">
-                            <img src="src/assets/products1.png" alt="Shoes Collection" class="feature-image"/>
+                            <img src="src/assets/Services3.jpg" alt="" />
                         </div>
                     </div>
                 </div>
             </section>
 
             <section className="contactsection">
-        <div className="seperatorh2">
-          <h2>Have any Inquiries?</h2>
-        </div>
         <h1>Contact Us!</h1>
         <div className="contactsection-background">
           <div className="contactus-form">

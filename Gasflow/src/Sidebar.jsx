@@ -1,6 +1,6 @@
 import './Sidebar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTachometerAlt, faStoreAlt, faBoxOpen, faWarehouse, faChartLine, faUsersCog, faCog, faPowerOff } from '@fortawesome/free-solid-svg-icons';
+import { faTachometerAlt, faStoreAlt, faWarehouse, faChartLine, faUsersCog, faCog, faPowerOff } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 
 
@@ -14,7 +14,6 @@ function Sidebar() {
                 <ul>
                     <li><Link to="/admin"><FontAwesomeIcon icon={faTachometerAlt} /> Orders</Link></li>
                     <li><Link to="/adminretailer"><FontAwesomeIcon icon={faStoreAlt} /> Retailers</Link></li>
-                    <li><a href="/products"><FontAwesomeIcon icon={faBoxOpen} /> Products</a></li>
                     <li><Link to="/adminstock"><FontAwesomeIcon icon={faWarehouse} /> Inventory</Link></li>
                     <li><Link to="/adminsales"><FontAwesomeIcon icon={faChartLine} /> Sales Report</Link></li>
                     <li><Link to="/adminuserlist"><FontAwesomeIcon icon={faUsersCog} /> User Management</Link></li>

@@ -75,7 +75,7 @@ const Userlist = () => {
 
   return (
     <div className="userlist-container">
-      <h2>Customer Roles</h2>
+      <h2>Customer List</h2>
       <table>
         <thead>
           <tr>

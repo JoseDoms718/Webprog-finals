@@ -15,11 +15,11 @@ function Navbar(){
 
             <div className="center-items">
                 <div className="navlinks">
-                    <Link to="/">Home</Link>
-                    <Link to="/products">Products</Link>
-                    <Link to="/services">Services</Link>
-                    <Link to="/orders">Orders</Link>
-                    <Link to="/contact">Contact</Link>
+                    <Link to="/home">Home</Link>
+                    <Link to="/home">Products</Link>
+                    <Link to="/home">Services</Link>
+                    <Link to="/home">Orders</Link>
+                    <Link to="/home">Contact</Link>
                 </div>
                 <div className="search-bar-with-icon">
                     <input

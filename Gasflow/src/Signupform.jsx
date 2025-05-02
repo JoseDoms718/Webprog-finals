@@ -35,12 +35,13 @@ function Signupform({ onBackToLogin }) {
       return;
     }
 
-    const phoneRegex = /^\d{11}$/;
-    if (!phoneRegex.test(formData.phoneNumber)) {
-      setMessage("Phone number must be exactly 11 digits.");
-      setIsSuccess(false);
-      return;
-    }
+    const phoneRegex = /^09\d{9}$/;
+if (!phoneRegex.test(formData.phoneNumber)) {
+  setMessage("Phone number must start with '09' and be exactly 11 digits.");
+  setIsSuccess(false);
+  return;
+}
+
 
     try {
       const res = await axios.post("http://localhost:5000/signup", formData);

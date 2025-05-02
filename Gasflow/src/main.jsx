@@ -4,14 +4,14 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'; // <-- Import r
 import './index.css';
 import Productsbuy from './Productbuy';
 import Landingpage from './Landingpage';
-import Homepage from './Homepage';
+import Customerpage from './Customerpage';
 import Loginpage from './Loginpage';
 import Admin from './Admin';
 import Adminsales from './Adminsales';
 import Adminretailer from './Adminretailer';
 import Adminuserlist from './Adminuserlist';
 import Adminstock from './Adminstock';
-import Customerpage from './Customerpage';
+
 // order-list
 import Orderlistpreparing from './Orderlistpreparing';
 import Orderlistdelivery from './Orderlistdelivery';
@@ -21,8 +21,8 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Customerpage />} />
-        <Route path="/home" element={<Landingpage />} />
+        <Route path="/" element={<Landingpage />} />
+        <Route path="/home" element={<Customerpage />} />
         <Route path="/login" element={<Loginpage />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/adminsales" element={<Adminsales />} />

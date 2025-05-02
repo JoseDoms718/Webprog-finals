@@ -7,7 +7,6 @@ const User = require('./models/User.js');
 require('dotenv').config();
 const { protect, isAdmin } = require('./middleware/auth.js');
 
-// ✅ NEW: Connect to PendingOrders DB and load the Order model from it
 const connectPendingOrdersDB = require('./config/pendingorder.js');
 const pendingOrdersConnection = connectPendingOrdersDB();
 const Order = require('./models/Pending.js')(pendingOrdersConnection); /// inject connection
