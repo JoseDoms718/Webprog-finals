@@ -125,9 +125,12 @@ app.put('/users/:id', protect, isAdmin, async (req, res) => {
 });
 
 // Order Submission Route
-app.post('/orders', async (req, res) => {
+app.post('/orders', protect, async (req, res) => {
   try {
-    const newOrder = await Order.create(req.body);
+    const newOrder = await Order.create({
+      ...req.body,
+      user: req.user.id
+    });
     res.status(201).json({ message: 'Order saved successfully', order: newOrder });
   } catch (err) {
     console.error('Error saving order:', err);
@@ -135,20 +138,20 @@ app.post('/orders', async (req, res) => {
   }
 });
 
-
-app.get('/orders', async (req, res) => {
+app.get('/orders', protect, async (req, res) => {
   try {
-    const orders = await Order.find(); // Fetch all orders from the database
-    res.status(200).json(orders); // Send orders as response
+    const orders = await Order.find();
+    res.status(200).json(orders);
   } catch (err) {
     console.error('Error fetching orders:', err);
     res.status(500).json({ message: 'Server error.' });
   }
 });
 
+
 app.put('/orders/:id', protect, isAdmin, async (req, res) => {
   const { id } = req.params;
-  const { status } = req.body; // Status from the frontend
+  const { status } = req.body;
 
   try {
     const updatedOrder = await Order.findByIdAndUpdate(id, { status }, { new: true });
